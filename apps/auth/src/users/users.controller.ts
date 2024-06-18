@@ -1,19 +1,21 @@
 import { Controller } from '@nestjs/common';
 import { UsersService } from './users.service';
 import {
-  UserServiceController,
   CreateUserDto,
   UpdateUserDto,
-  UserServiceControllerMethods,
   FindOneUserDto,
   PaginationDto,
   Users,
 } from '@app/common';
+import {
+  UsersServiceControllerMethods,
+  UsersServiceController,
+} from '@app/common';
 import { Observable } from 'rxjs';
 
 @Controller()
-@UserServiceControllerMethods()
-export class UsersController implements UserServiceController {
+@UsersServiceControllerMethods()
+export class UsersController implements UsersServiceController {
   constructor(private readonly usersService: UsersService) {}
 
   createUser(createUserDto: CreateUserDto) {
